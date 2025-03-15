@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, p, ul {
+  margin: 0;
+}
+
+
+.cover-container {
+  min-height: 300px;
+}
+
+
+.subject-list  {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+
+.author-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+/* .book-summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height:56px;
+} */
+
+
+.subject-item {
+  text-transform: capitalize;
+}
+
+.author-info {
+  padding: 1rem;
+}
+
+
+#root {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+
+main {
+  padding: 1rem;
+}
+
+
+.card-container {
+  box-shadow: -5px 4px 22px 7px rgba(0, 0, 0, 0.20);
+  -webkit-box-shadow: -5px 4px 22px 7px rgba(0,0,0,0.20);
+  -moz-box-shadow: -5px 4px 22px 7px rgba(0,0,0,0.20);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  background-color: #dcccbb; 
+  
+}
+
+.card-title{
+  text-align: center;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.card-container:hover {
+  border: 2px solid #646e78;
+}
+
+.cover-container{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-color: #EAB464;
+}
+
+.logo-container img {
+  max-width: 400px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+.card-detail-container{
+  display: flex;
+  gap: 2rem;
+}
+
+.card-big-img {
+  max-height: 650px;
+}
+
+.spec span {
+  padding-right: 1rem;
+}

@@ -1,6 +1,5 @@
-import Card from "../models/card.js"
 import Set from "../models/set.js"
-
+import { BaseCard, DetailedCard } from "../models/card.js"
 
 
 export default class DataService {
@@ -15,16 +14,23 @@ export default class DataService {
   }
 
   fetchAllCards(){
-    return this.#fetchRawData().then(data => data.map(card => this.#handleCardCreation(card)))
+    return this.#fetchRawData().then(data => data.map(card => new BaseCard(card.id, card.name, card.card_images[0].image_url_small)))
   }
 
+  /**
+   * 
+   * @param {number} id 
+   * @returns {Promise<DetailedCard>}
+   */
   fetchCardById(id){
     return this.#fetchRawData()
     .then(data => {
       const cardData = data.find(card => card.id === id)
-      this.#handleCardCreation(cardData)
+      return this.#handleCardCreation(cardData)
     })
   }
+
+
 
 
   #handleCardCreation(data) {
@@ -33,10 +39,10 @@ export default class DataService {
   }
 
   #createCardInstance(dataEntry, setsArray){
-    return new Card(
-      dataEntry.id, dataEntry.name, dataEntry.type,
+    return new DetailedCard(
+      dataEntry.id, dataEntry.name, dataEntry.card_images[0].image_url, dataEntry.type,
       dataEntry.desc, dataEntry.race, dataEntry.archetype,
-      setsArray, dataEntry.card_images.image_url_small
+      setsArray
     )
   }
 
